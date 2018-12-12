@@ -41,6 +41,41 @@ Brandon M. &  Angelo Q. & Jhordy V. & Leidy H. & Angela B. & Mreya P. \\
        \normalsize Definir que tipo de Backup aplicar y en que consiste cada uno . Explicar el impacto de las estrategias de Backups en las necesidades del espacio.
 
 \section{Marco Te\'orico}
+	 \subsection{Copias de seguridad y restauracion de base de datos}
+Una copia de los datos que se puede utilizar para restaurar y recuperar los datos se denomina copia de seguridad. Las copias de seguridad le permiten restaurar los datos después de un error. Con las copias de seguridad correctas puede recuperarse de multitud de errores por ejemplo
+		\normalsize Errores de medios
+		\normalsize Errores de usuario
+		\normalsize Desastres naturales
+
+	 \subsection{COMO IMPEDIR LA PERDIDA DE DATOS}
+Impedir la pérdida de datos es uno de los problemas más importantes que afrontan los administradores de sistemas.\\
+a) Disponer de una estrategia de copia de seguridad
+
+Debe tener una estrategia de copia de seguridad para aminorar la pérdida de datos y recuperar los datos perdidos. Los datos se pueden perder como consecuencia de errores de hardware o de software, o bien por:\\
+
+\normalsize Virus destructivos.
+\normalsize Desastres naturales, como incendios, inundaciones y terremotos.
+\normalsize Robo.
+
+b) Hacer copias de seguridad con regularidad
+La frecuencia con que haga las copias de seguridad de la base de datos depende de la cantidad de datos que esté dispuesto a perder y la actividad de la base de datos. Cuando haga copias de seguridad de bases de datos de usuario, tenga en cuenta los siguientes hechos e instrucciones:
+\\
+\\- Puede hacer copias de seguridad de la base de datos con frecuencia si el sistema se encuentra en un entorno de proceso de transacciones en línea (OLTP, Online Transaction Processing).
+\\-	Puede hacer copias de seguridad de la base de datos con menos frecuencia si el sistema tiene poca actividad o se utiliza, principalmente, para la toma de decisiones.
+\\-	Debe programar las copias de seguridad cuando no se estén efectuando muchas actualizaciones en SQL Server.
+
+ Tipos de Respaldo que Soporta Oracle
+\\-	Completo.- Se respalda toda la base de datos.
+\\-	Incremental.- Debe tener previamente un respaldo completo. Respalda a medida que se realizan cambios.
+\\-	Diferencial.- Debe tener previamente un respaldo completo. Respalda las diferencias existentes entre un respaldo y otro.
+\\-	Flashbacks.- Permite de manera rápida volver a un estado anterior de la base de datos.
+	\\ Respaldo y Recuperacion
+\\Para determinar cuándo hacer un respaldo, pensar de la siguiente manera: hacer una copia de respaldo justo antes del momento en que regenerar los datos ocasione mayor esfuerzo que hacer el respaldo.
+
+	Respaldos
+Respaldo es la obtencion de una copia de los datos en otro medio magnetico, de tal modo que a partir de dicha copia es posible restaurar el sistema al momento de haber realizado el respaldo. Por lo tanto, los respaldos deben hacerse con regularidad, con la frecuencia preestablecida y de la manera indicada, a efectos de hacerlos correctamente.
+\\
+
 \section{Desarrollo}
 \section{Referencias}
 \section{Conclusi\'on}
