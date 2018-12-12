@@ -33,9 +33,9 @@ Brandon M. &  Angelo Q. & Jhordy V. & Leidy H. & Angela B. & Mreya P. \\
 ]
 
 \section{Introducci\'on}
-\normalsize En el presente informe Se explicara cómo es que se debe realizar un respaldo de la información, en este caso el respaldo de una base de datos en Oracle 11g Enterprise Edition para el uso del asistente grafico para copias de seguridad (Enterprise Manager).
-\normalsizAdemás se utilizara SQLDEVElOPER.exe para para conectar un usuario, también sirve para migración de bases de datos de MySQL a Oracle.
-\normalsize Se explicara qué tipos de backups se pueden realizar en Oracle, algunas recomendaciones de cuando realizar las copias de seguridad además de copias de seguridad en modo consola y de manera grafica.
+\normalsize En el presente informe Se explicara c\'omo es que se debe realizar un respaldo de la informaci\'on, en este caso el respaldo de una base de datos en Oracle 11g Enterprise Edition para el uso del asistente grafico para copias de seguridad (Enterprise Manager).
+\normalsize Adem\'as se utilizara SQLDEVElOPER.exe para para conectar un usuario, tambi\'en sirve para migraci\'on de bases de datos de MySQL a Oracle.
+\normalsize Se explicara qu\'e tipos de backups se pueden realizar en Oracle, algunas recomendaciones de cuando realizar las copias de seguridad adem\'as de copias de seguridad en modo consola y de manera gr\'afica.
 
 
 \section{Objetivos}
@@ -47,39 +47,55 @@ Brandon M. &  Angelo Q. & Jhordy V. & Leidy H. & Angela B. & Mreya P. \\
 
 \section{Marco Te\'orico}
 	 \subsection{Copias de seguridad y restauracion de base de datos}
-Una copia de los datos que se puede utilizar para restaurar y recuperar los datos se denomina copia de seguridad. Las copias de seguridad le permiten restaurar los datos después de un error. Con las copias de seguridad correctas puede recuperarse de multitud de errores por ejemplo
+\normalsize Una copia de los datos que se puede utilizar para restaurar y recuperar los datos se denomina copia de seguridad. Las copias de seguridad le permiten restaurar los datos despu\'es de un error. Con las copias de seguridad correctas puede recuperarse de multitud de errores por ejemplo
 		\normalsize Errores de medios
 		\normalsize Errores de usuario
 		\normalsize Desastres naturales
 
 	 \subsection{COMO IMPEDIR LA PERDIDA DE DATOS}
-Impedir la pérdida de datos es uno de los problemas más importantes que afrontan los administradores de sistemas.\\
-a) Disponer de una estrategia de copia de seguridad
+\normalsize Impedir la p\'erdida de datos es uno de los problemas m\'as importantes que afrontan los administradores de sistemas.\\
 
-Debe tener una estrategia de copia de seguridad para aminorar la pérdida de datos y recuperar los datos perdidos. Los datos se pueden perder como consecuencia de errores de hardware o de software, o bien por:\\
+   \begin{enumerate}[a)]
+        \item Disponer de una estrategia de copia de seguridad
+
+\normalsize Debe tener una estrategia de copia de seguridad para aminorar la p\'erdida de datos y recuperar los datos perdidos. Los datos se pueden perder como consecuencia de errores de hardware o de software, o bien por:\\
 
 \normalsize Virus destructivos.
 \normalsize Desastres naturales, como incendios, inundaciones y terremotos.
-\normalsize Robo.
+\normalsize Robo.\\
 
-b) Hacer copias de seguridad con regularidad
-La frecuencia con que haga las copias de seguridad de la base de datos depende de la cantidad de datos que esté dispuesto a perder y la actividad de la base de datos. Cuando haga copias de seguridad de bases de datos de usuario, tenga en cuenta los siguientes hechos e instrucciones:
-\\
-\\- Puede hacer copias de seguridad de la base de datos con frecuencia si el sistema se encuentra en un entorno de proceso de transacciones en línea (OLTP, Online Transaction Processing).
-\\-	Puede hacer copias de seguridad de la base de datos con menos frecuencia si el sistema tiene poca actividad o se utiliza, principalmente, para la toma de decisiones.
-\\-	Debe programar las copias de seguridad cuando no se estén efectuando muchas actualizaciones en SQL Server.
+      \item  Hacer copias de seguridad con regularidad
+La frecuencia con que haga las copias de seguridad de la base de datos depende de la cantidad de datos que est\'e dispuesto a perder y la actividad de la base de datos. Cuando haga copias de seguridad de bases de datos de usuario, tenga en cuenta los siguientes hechos e instrucciones:
+  \begin{itemize}
+    \item Puede hacer copias de seguridad de la base de datos con frecuencia si el sistema se encuentra en un entorno de proceso de transacciones en l\'inea (OLTP, Online Transaction Processing).
+    \item Puede hacer copias de seguridad de la base de datos con menos frecuencia si el sistema tiene poca actividad o se utiliza, principalmente, para la toma de decisiones.
+    \item Debe programar las copias de seguridad cuando no se est\'en efectuando muchas actualizaciones en SQL Server.
+    
+   \end{itemize}
 
- Tipos de Respaldo que Soporta Oracle
-\\-	Completo.- Se respalda toda la base de datos.
-\\-	Incremental.- Debe tener previamente un respaldo completo. Respalda a medida que se realizan cambios.
-\\-	Diferencial.- Debe tener previamente un respaldo completo. Respalda las diferencias existentes entre un respaldo y otro.
-\\-	Flashbacks.- Permite de manera rápida volver a un estado anterior de la base de datos.
-	\\ Respaldo y Recuperacion
-\\Para determinar cuándo hacer un respaldo, pensar de la siguiente manera: hacer una copia de respaldo justo antes del momento en que regenerar los datos ocasione mayor esfuerzo que hacer el respaldo.
+ \end{enumerate}
+\renewcommand{\labelitemi}{$-$}
+\renewcommand{\labelitemii}{$\cdot$}
 
-	Respaldos
-Respaldo es la obtencion de una copia de los datos en otro medio magnetico, de tal modo que a partir de dicha copia es posible restaurar el sistema al momento de haber realizado el respaldo. Por lo tanto, los respaldos deben hacerse con regularidad, con la frecuencia preestablecida y de la manera indicada, a efectos de hacerlos correctamente.
-\\
+\begin{enumerate}[a)]
+    \item Tipos de Respaldo que Soporta Oracle
+   \begin{itemize}
+          \item Completo.- Se respalda toda la base de datos.
+          \item Incremental.- Debe tener previamente un respaldo completo. Respalda a medida que se realizan cambios.
+          \item 	Diferencial.- Debe tener previamente un respaldo completo. Respalda las diferencias existentes entre un respaldo y otro.
+          \item Flashbacks.- Permite de manera rápida volver a un estado anterior de la base de datos.
+          \item Respaldo y Recuperacion
+          \item Para determinar cu\'ando hacer un respaldo, pensar de la siguiente manera: hacer una copia de respaldo justo antes del momento en que regenerar los datos ocasione mayor esfuerzo que hacer el respaldo.
+       \end{itemize}
+   \item Respaldos
+      \normalsize Respaldo es la obtencion de una copia de los datos en otro medio magnetico, de tal modo que a partir de dicha copia es posible restaurar el sistema al momento de haber realizado el respaldo. Por lo tanto, los respaldos deben hacerse con regularidad, con la frecuencia preestablecida y de la manera indicada, a efectos de hacerlos correctamente. Es fundamental hacer bien los respaldos . De nada sirven respaldos mal hechos (por ejemplo, incompletos). En realidad , es peor disponer de respaldos no confiables que carecer totalmente de ellos. 
+     \normalsize Suele ocurrir que la realizaci\'on de respaldos es una tarea relegada a un plano secundario, cuando en realidad la continuidad de una aplicacion depende de los mismos. Los respaldos son tan importantes como lo es el correcto ingreso de datos.
+
+             
+
+\end{enumerate}
+
+
 
 \section{Desarrollo}
 \section{Referencias}
