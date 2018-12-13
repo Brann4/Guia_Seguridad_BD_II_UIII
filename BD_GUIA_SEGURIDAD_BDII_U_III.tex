@@ -66,7 +66,9 @@ Brandon M. &  Angelo Q. & Jhordy V. & Leidy H. & Angela B. & Mreya P. \\
 
       \item  Hacer copias de seguridad con regularidad
 La frecuencia con que haga las copias de seguridad de la base de datos depende de la cantidad de datos que est\'e dispuesto a perder y la actividad de la base de datos. Cuando haga copias de seguridad de bases de datos de usuario, tenga en cuenta los siguientes hechos e instrucciones:
-  \begin{itemize}
+ \renewcommand{\labelitemi}{$-$}
+\renewcommand{\labelitemii}{$\cdot$}
+    \begin{itemize}
     \item Puede hacer copias de seguridad de la base de datos con frecuencia si el sistema se encuentra en un entorno de proceso de transacciones en l\'inea (OLTP, Online Transaction Processing).
     \item Puede hacer copias de seguridad de la base de datos con menos frecuencia si el sistema tiene poca actividad o se utiliza, principalmente, para la toma de decisiones.
     \item Debe programar las copias de seguridad cuando no se est\'en efectuando muchas actualizaciones en SQL Server.
@@ -88,19 +90,55 @@ La frecuencia con que haga las copias de seguridad de la base de datos depende d
           \item Para determinar cu\'ando hacer un respaldo, pensar de la siguiente manera: hacer una copia de respaldo justo antes del momento en que regenerar los datos ocasione mayor esfuerzo que hacer el respaldo.
        \end{itemize}
    \item Respaldos
-      \normalsize Respaldo es la obtencion de una copia de los datos en otro medio magnetico, de tal modo que a partir de dicha copia es posible restaurar el sistema al momento de haber realizado el respaldo. Por lo tanto, los respaldos deben hacerse con regularidad, con la frecuencia preestablecida y de la manera indicada, a efectos de hacerlos correctamente. Es fundamental hacer bien los respaldos . De nada sirven respaldos mal hechos (por ejemplo, incompletos). En realidad , es peor disponer de respaldos no confiables que carecer totalmente de ellos. 
-     \normalsize Suele ocurrir que la realizaci\'on de respaldos es una tarea relegada a un plano secundario, cuando en realidad la continuidad de una aplicacion depende de los mismos. Los respaldos son tan importantes como lo es el correcto ingreso de datos.
-
-             
-
+      \normalsize Respaldo es la obtencion de una copia de los datos en otro medio magnetico, de tal modo que a partir de dicha copia es posible restaurar el sistema al momento de haber realizado el respaldo. Por lo tanto, los respaldos deben hacerse con regularidad, con la frecuencia preestablecida y de la manera indicada, a efectos de hacerlos correctamente. Es fundamental hacer bien los respaldos . De nada sirven respaldos mal hechos (por ejemplo, incompletos). En realidad , es peor disponer de respaldos no confiables que carecer totalmente de ellos. \\
+ Suele ocurrir que la realizaci\'on de respaldos es una tarea relegada a un plano secundario, cuando en realidad la continuidad de una aplicacion depende de los mismos. Los respaldos son tan importantes como lo es el correcto ingreso de datos.
 \end{enumerate}
 
-
-
 \section{Desarrollo}
+
+          \normalsize Vemos como EM localiza la ruta en conflicto y te la presenta para sleccionarla. Siguiente.\\ \\
+          
+          \includegraphics[width=0.3\textwidth]{./Imagenes/recu_5.jpg}
+          
+          \normalsize Tambi\'en podemos definir el destino de la restauraci\'on. Para el ejemplo  nos interesa que se ubiquen en el mismo directorio. \\ 
+
+         
+          \includegraphics[width=0.3\textwidth]{./Imagenes/recu_6.jpg}
+      
+
+           \normalsize Podemos revisar los par\'ametros RMAN para ver y comprender las acciones realizadas por debajo de EM. Una vez este revisado procederemos a ejecutar. 
+ Esto lo que har\'a ser\'a tomar del backup el fichero y llevarlo al destino aplicando los cambios hasta el momento de la p\'erdida permitiendo as\'i el inicio normal de la BD con tablespace online. 
+Una vez finalizado podemos pinchar en Abrir Base de Datos y esta se reiniciar\'a y se abrira automaticamente despues de ver insertado nuestros credenciales.\\ 
+
+\includegraphics[width=0.3\textwidth]{./Imagenes/eje1.jpg}
+      
+ En este paso elegiremos el destino de la copia, como no disponemos del dispositivo de cintas , se pasa a continuar explicando la opci\'on Disco. La ubicacion que ha tomado para la opci\'on 
+Disco esta asignada desde RMAN.
+\includegraphics[width=0.3\textwidth]{./Imagenes/eje2.jpg}
+
+
+ Introducimos nombre si lo deseamos y la descripci\'on, y lo planificamos para que se realice una vez y de forma inmediata.
+\includegraphics[width=0.3\textwidth]{./Imagenes/eje3.jpg}
+
+Revisamos que todo este correcto y ejecutamos el trabajo. Si todo ha sido correcto deberia aparecer esto.\\
+\includegraphics[width=0.3\textwidth]{./Imagenes/eje4.jpg}
+
+Recuperacion desde Enterprise Manager
+Para realizar una recuperaci\'on desde EM , iremos a Disponibilidad y seleccionamos "Realizar Recuperaci\'on".\\
+\includegraphics[width=0.3\textwidth]{./Imagenes/eje5.jpg}
+
+Iniciamos oracle en modo mount y arracamos EM.\\
+\includegraphics[width=0.3\textwidth]{./Imagenes/eje6.jpg}
+
+Pinchamos en Realizar Recuperacion. Seguidamente introducimos las credenciales de host. Continuar. Nos conectamos como sysdba.
+\includegraphics[width=0.3\textwidth]{./Imagenes/eje7.jpg}
+
+En el \'ambito de recuperacion elegimos Archivos de Datos y en el tipo de operaci\'on restaurar hasta hora actual. Pinchamos en recuperar
+\includegraphics[width=0.3\textwidth]{./Imagenes/eje8.jpg}
+
+      
 \section{Referencias}
 \section{Conclusi\'on}
-
 
 
 \end{document}
